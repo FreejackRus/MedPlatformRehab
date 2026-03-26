@@ -1,0 +1,14 @@
+{
+  "name": "rehabcare-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ioredis": "^5.6.1",
+    "ws": "^8.18.3"
+  }
+}

@@ -1,0 +1,108 @@
+export function createSeedState() {
+  return {
+    patients: [
+      {
+        id: "pt-001",
+        fullName: "Иван Петров",
+        contact: "+7 999 123 45 67",
+        surgeryDate: "2026-03-12",
+        prosthesisType: "Тотальный",
+        clinic: "ГКБ №12",
+        curator: "Ольга Смирнова",
+        rehabProgram: "standard",
+        status: "На домашнем этапе",
+        lastContact: "Сегодня, 09:20",
+        notes: "Выполняет ЛФК регулярно, отмечает умеренный отёк к вечеру.",
+      },
+      {
+        id: "pt-002",
+        fullName: "Марина Соколова",
+        contact: "marina@example.com",
+        surgeryDate: "2026-03-05",
+        prosthesisType: "Частичный",
+        clinic: "Поликлиника №4",
+        curator: "Антон Беляев",
+        rehabProgram: "gentle",
+        status: "Требует внимания",
+        lastContact: "Сегодня, 08:10",
+        notes: "Нужен повторный контакт из-за температуры и усилившегося отёка.",
+      },
+    ],
+    doctor: {
+      id: "dr-001",
+      fullName: "Д-р Елена Миронова",
+      email: "doctor@hospital.ru",
+      password: "doctor123",
+      organization: "ГКБ №12",
+    },
+    patientWorkspace: {
+      tasks: [
+        { id: "task-1", time: "08:30", title: "Утренний комплекс ЛФК", note: "15 минут, мягкая мобилизация и дыхательные упражнения", done: true },
+        { id: "task-2", time: "12:00", title: "Заполнение дневника самоконтроля", note: "Боль, отёк, температура, шаги, пульс, самочувствие", done: false },
+        { id: "task-3", time: "18:00", title: "Контрольное сообщение чат-бота", note: "Проверка симптомов и фиксация дневной активности", done: false },
+      ],
+      reminders: [
+        { id: "exercise", label: "Упражнения", description: "Напоминание о времени выполнения ЛФК", enabled: true },
+        { id: "meds", label: "Лекарства", description: "Контроль схемы приёма препаратов", enabled: true },
+        { id: "journal", label: "Дневник", description: "Ежедневное заполнение самоконтроля", enabled: true },
+        { id: "consult", label: "Консультации", description: "Будущие приёмы и госпитализации", enabled: false },
+      ],
+      exercises: [
+        { id: "ex-1", title: "Дыхательные упражнения", stageId: "phase-1", stage: "0-2 неделя", type: "Дыхание", duration: "7 мин", completed: true, videoTitle: "Видео: дыхательная активация", videoSummary: "Спокойный темп, работа с дыханием и мягкой активацией кровообращения." },
+        { id: "ex-2", title: "Мягкая мобилизация колена", stageId: "phase-1", stage: "0-2 неделя", type: "Суставы", duration: "12 мин", completed: true, videoTitle: "Видео: мягкая мобилизация колена", videoSummary: "Щадящее упражнение для уменьшения боли и восстановления амплитуды." },
+        { id: "ex-3", title: "Подъём прямой ноги", stageId: "phase-1", stage: "0-2 неделя", type: "Сила", duration: "8 мин", completed: false, videoTitle: "Видео: подъём прямой ноги", videoSummary: "Базовое силовое упражнение с акцентом на правильную ось ноги." },
+        { id: "ex-4", title: "Баланс с опорой", stageId: "phase-2", stage: "3-4 неделя", type: "Баланс", duration: "10 мин", completed: false, videoTitle: "Видео: баланс с опорой", videoSummary: "Упражнение на устойчивость с обязательной страховкой." },
+        { id: "ex-5", title: "Ходьба с дозированной нагрузкой", stageId: "phase-2", stage: "3-4 неделя", type: "Ходьба", duration: "9 мин", completed: false, videoTitle: "Видео: дозированная ходьба", videoSummary: "Пошаговая техника безопасной ходьбы и контроля переноса веса." },
+        { id: "ex-6", title: "Укрепление бедра и ягодичных", stageId: "phase-3", stage: "5-8 неделя", type: "Сила", duration: "14 мин", completed: false, videoTitle: "Видео: укрепление бедра", videoSummary: "Работа на силу и контроль положения таза." },
+      ],
+      journal: {
+        pain: 3,
+        swelling: "Умеренный",
+        temperature: "36.7",
+        pulse: "78",
+        steps: "3420",
+        mood: "Спокойное, есть прогресс",
+        sleep: "6.5 часов",
+        wound: "Шов сухой, без выделений",
+      },
+      progress: {
+        pain: [6, 5, 5, 4, 4, 3, 3],
+        swelling: [4, 4, 4, 3, 3, 3, 2],
+        steps: [1800, 2200, 2500, 2900, 3100, 3420, 3860],
+        flexion: [45, 52, 57, 63, 70, 78, 85],
+      },
+    },
+    incidents: [
+      { id: "inc-1", severity: "Высокий", title: "Боль после упражнения", patient: "Иван Петров", time: "09:12", status: "Ожидает ответа врача" },
+      { id: "inc-2", severity: "Критический", title: "Температура 38.1 и выраженный отёк", patient: "Марина Соколова", time: "08:06", status: "Срочная связь с врачом" },
+    ],
+    threads: [
+      {
+        id: "thread-1",
+        patientId: "pt-001",
+        title: "Боль после упражнения",
+        status: "needs_review",
+        unreadByDoctor: true,
+        unreadByPatient: false,
+        botState: { mode: "pain_assessment", trigger: "pain_after_exercise", painScore: 6, location: null, timing: null },
+        messages: [
+          { id: "m1", author: "patient", text: "У меня болит колено после упражнения.", timestamp: "09:10" },
+          { id: "m2", author: "bot", text: "Чтобы понять, безопасна ли нагрузка, ответьте, пожалуйста, на три вопроса: оцените боль по шкале от 0 до 10; где именно болит: спереди, сбоку или сзади; когда появилась боль: сразу после упражнения или через время.", timestamp: "09:11" },
+        ],
+      },
+      {
+        id: "thread-2",
+        patientId: "pt-002",
+        title: "Температура и отёк",
+        status: "escalated",
+        unreadByDoctor: true,
+        unreadByPatient: false,
+        botState: { mode: "escalated" },
+        messages: [
+          { id: "m4", author: "patient", text: "Сегодня температура 38.1 и усилился отёк.", timestamp: "08:06" },
+          { id: "m5", author: "bot", text: "Это тревожный признак. Я передаю обращение врачу.", timestamp: "08:06" },
+        ],
+      },
+    ],
+  };
+}
