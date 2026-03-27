@@ -1,3 +1,3 @@
-import PatientWorkspace from "../../components/patient/PatientWorkspace.jsx";
+import PatientWorkspace from "./ui/PatientWorkspace.jsx";
 
 export default PatientWorkspace;

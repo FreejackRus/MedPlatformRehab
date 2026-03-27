@@ -1,3 +1,3 @@
-import DoctorWorkspace from "../../components/doctor/DoctorWorkspace.jsx";
+import DoctorWorkspace from "./ui/DoctorWorkspace.jsx";
 
 export default DoctorWorkspace;

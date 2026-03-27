@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { clinics, prosthesisTypes, rehabProtocols } from "../../../data/mockData.js";
+import { clinics, prosthesisTypes, rehabProtocols } from "../model/options.js";
 
 function PatientAuthForm({ form, onChange, onSubmit }) {
   return (

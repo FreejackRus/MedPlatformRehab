@@ -1,0 +1,60 @@
+export const patientSections = [
+  { id: "overview", label: "Обзор" },
+  { id: "plan", label: "План" },
+  { id: "journal", label: "Самоконтроль" },
+  { id: "lfk", label: "ЛФК" },
+  { id: "progress", label: "Прогресс" },
+  { id: "notifications", label: "Уведомления" },
+  { id: "chat", label: "Чат" },
+  { id: "materials", label: "Материалы" },
+  { id: "profile", label: "Профиль" },
+];
+
+export const faqMaterials = [
+  "Инструкция по уходу за швом и список тревожных признаков",
+  "Рекомендации по питанию для снижения отёка и восстановления тканей",
+  "Правила безопасного передвижения с костылями или ходунками",
+  "Ответы на вопросы о боли, сне, лекарствах и бытовой активности",
+];
+
+export const basePatients = [
+  {
+    id: "pt-001",
+    fullName: "Иван Петров",
+    contact: "+7 999 123 45 67",
+    surgeryDate: "2026-03-12",
+    prosthesisType: "Тотальный",
+    clinic: "ГКБ №12",
+    curator: "Ольга Смирнова",
+    rehabProgram: "standard",
+    status: "На домашнем этапе",
+    lastContact: "Сегодня, 09:20",
+    notes: "Выполняет ЛФК регулярно, отмечает умеренный отёк к вечеру.",
+  },
+  {
+    id: "pt-002",
+    fullName: "Марина Соколова",
+    contact: "marina@example.com",
+    surgeryDate: "2026-03-05",
+    prosthesisType: "Частичный",
+    clinic: "Поликлиника №4",
+    curator: "Антон Беляев",
+    rehabProgram: "gentle",
+    status: "Требует внимания",
+    lastContact: "Сегодня, 08:10",
+    notes: "Нужен повторный контакт из-за температуры и усилившегося отёка.",
+  },
+  {
+    id: "pt-003",
+    fullName: "Сергей Волков",
+    contact: "+7 900 777 90 10",
+    surgeryDate: "2026-02-22",
+    prosthesisType: "Ревизионный",
+    clinic: "Центр травматологии №2",
+    curator: "Наталья Егорова",
+    rehabProgram: "intensive",
+    status: "Стабильный прогресс",
+    lastContact: "Вчера, 18:45",
+    notes: "Стабильная динамика шагов и уменьшение боли.",
+  },
+];

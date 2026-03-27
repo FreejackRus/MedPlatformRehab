@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { doctorSections } from "../../data/mockData.js";
-import DoctorChatInbox from "../chat/DoctorChatInbox.jsx";
+import { doctorSections, triageStatuses } from "../../../entities/doctor/model/constants.js";
+import DoctorChat from "../../../entities/chat/ui/DoctorChat.jsx";
 
 function DoctorOverview({ state, derived }) {
   const { visiblePatients, currentStage } = derived;
@@ -33,7 +33,6 @@ function DoctorOverview({ state, derived }) {
 
 function PatientsScreen({ state, derived, actions }) {
   const { visiblePatients, patient } = derived;
-  const statuses = ["Все", "На домашнем этапе", "Требует внимания", "Стабильный прогресс"];
 
   return (
     <article className="card">
@@ -51,7 +50,7 @@ function PatientsScreen({ state, derived, actions }) {
             onChange={(event) => actions.updateDoctorFilter("patientSearch", event.target.value)}
           />
           <select value={state.doctor.triageFilter} onChange={(event) => actions.updateDoctorFilter("triageFilter", event.target.value)}>
-            {statuses.map((status) => (
+            {triageStatuses.map((status) => (
               <option key={status}>{status}</option>
             ))}
           </select>
@@ -154,7 +153,7 @@ function renderDoctorScreen(screen, state, derived, actions) {
       return <IncidentsScreen state={state} />;
     case "chat":
       return (
-        <DoctorChatInbox
+        <DoctorChat
           threads={state.chatThreads}
           activeThread={derived.activeDoctorThread}
           draft={state.doctor.replyDraft}

@@ -1,4 +1,5 @@
-import { basePatients, chartLabels, rehabProtocols, rehabStages } from "../data/mockData.js";
+import { basePatients } from "../../entities/patient/model/constants.js";
+import { chartLabels, rehabProtocols, rehabStages } from "../../entities/rehab/model/constants.js";
 
 export { chartLabels };
 
@@ -38,17 +39,6 @@ export function getVisiblePatients(patient, doctorState) {
 
     return doctorState.triageFilter === "Все" ? true : item.status === doctorState.triageFilter;
   });
-}
-
-export function getThreadStatusLabel(status) {
-  const labels = {
-    needs_review: "Требует оценки",
-    escalated: "Эскалация врачу",
-    doctor_replied: "Есть ответ врача",
-    open: "Открыт",
-  };
-
-  return labels[status] ?? "Открыт";
 }
 
 export function getRehabProgramMeta(rehabProgram = "standard") {

@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { exerciseFilters, faqMaterials, patientSections } from "../../data/mockData.js";
-import ChatAssistant from "../chat/ChatAssistant.jsx";
-import MetricChart from "../shared/MetricChart.jsx";
+import { patientSections, faqMaterials } from "../../../entities/patient/model/constants.js";
+import { exerciseFilters } from "../../../entities/rehab/model/constants.js";
+import PatientChat from "../../../entities/chat/ui/PatientChat.jsx";
+import MetricChart from "../../../entities/metric/ui/MetricChart.jsx";
 
 function OverviewScreen({ derived }) {
   const { patient, daysAfterSurgery, currentStage, progressPercent, recoveryPlan, emergencySignals } = derived;
@@ -530,7 +531,7 @@ function renderScreen(screen, state, derived, actions) {
       return <NotificationsScreen state={state} actions={actions} />;
     case "chat":
       return (
-        <ChatAssistant
+        <PatientChat
           threads={state.chatThreads.filter((thread) => thread.patientId === derived.patient.id)}
           activeThread={derived.activePatientThread}
           draft={state.patientChat.draft}

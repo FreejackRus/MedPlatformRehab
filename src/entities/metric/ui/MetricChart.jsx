@@ -1,3 +1,3 @@
-import MetricChart from "../../../components/shared/MetricChart.jsx";
+import MetricChart from "./MetricChartBase.jsx";
 
 export default MetricChart;

@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import AppHeader from "./widgets/app-header/index.jsx";
-import { useAppState } from "./hooks/useAppState.js";
+import { useAppStore } from "./app/store/useAppStore.js";
 import AuthLandingPage from "./pages/auth/index.jsx";
 import DoctorAuthPage from "./pages/auth-doctor/index.jsx";
 import PatientAuthPage from "./pages/auth-patient/index.jsx";
@@ -10,7 +10,7 @@ import PatientPage from "./pages/patient/index.jsx";
 import RouteGuard from "./shared/ui/RouteGuard.jsx";
 
 function AppRoutes() {
-  const { state, actions, derived, loading } = useAppState();
+  const { state, actions, derived, loading } = useAppStore();
   const location = useLocation();
   const isAuthRoute = location.pathname.startsWith("/auth");
 

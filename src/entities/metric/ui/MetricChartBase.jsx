@@ -1,4 +1,4 @@
-import { chartLabels } from "../../utils/domain.js";
+import { chartLabels } from "../../rehab/model/constants.js";
 
 function MetricChart({ metric }) {
   return (
